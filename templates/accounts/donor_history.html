@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Donation History — {{ site_config.name }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4">My Donations</h2>
+    {% if donations %}
+    <div class="table-responsive">
+        <table class="table">
+            <thead><tr><th>Date</th><th>Amount</th><th>Status</th><th>Receipt</th></tr></thead>
+            <tbody>
+                {% for d in donations %}
+                <tr>
+                    <td>{{ d.paid_at|date:"M d, Y" }}</td>
+                    <td>&#8377;{{ d.amount }}</td>
+                    <td><span class="badge bg-success">{{ d.get_status_display }}</span></td>
+                    <td>{% if d.receipt and d.receipt.pdf_file %}<a href="{{ d.receipt.pdf_file.url }}">Download</a>{% else %}—{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="text-muted">No donations yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

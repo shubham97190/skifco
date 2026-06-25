@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}Donate — {{ site_config.name }}{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+                <li class="breadcrumb-item active">Donate</li>
+            </ol>
+        </nav>
+        <h1>Support Our Mission</h1>
+        <p>Your contribution helps us create lasting impact in education, healthcare, and community welfare.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-7" data-animate>
+                <h3 class="mb-1">Make A Donation</h3>
+                <div class="section-divider mb-4"></div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-600">Choose An Amount</label>
+                    <div class="d-flex flex-wrap gap-3 mb-3">
+                        <button class="amount-btn" data-amount="500">
+                            &#8377;500
+                            <span class="amount-impact">A child's books</span>
+                        </button>
+                        <button class="amount-btn" data-amount="1000">
+                            &#8377;1,000
+                            <span class="amount-impact">Month's tuition</span>
+                        </button>
+                        <button class="amount-btn" data-amount="2500">
+                            &#8377;2,500
+                            <span class="amount-impact">Health camp kit</span>
+                        </button>
+                        <button class="amount-btn" data-amount="5000">
+                            &#8377;5,000
+                            <span class="amount-impact">Skill training</span>
+                        </button>
+                    </div>
+                    <input type="number" id="custom-amount" class="form-control" placeholder="Or enter custom amount (&#8377;)" min="1">
+                </div>
+
+                <h5 class="fw-600 mt-4 mb-3">Your Details</h5>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-600">Full Name *</label>
+                        <input type="text" id="donor-name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-600">Email *</label>
+                        <input type="email" id="donor-email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-600">Phone *</label>
+                        <input type="tel" id="donor-phone" class="form-control" placeholder="Enter phone number" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-600">PAN Number</label>
+                        <input type="text" id="donor-pan" class="form-control" placeholder="For 80G receipt (optional)">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label fw-600">Address</label>
+                        <textarea id="donor-address" class="form-control" rows="2" placeholder="Your address (optional)"></textarea>
+                    </div>
+                </div>
+
+                <button id="donate-btn" class="btn btn-accent btn-lg mt-4 px-5" disabled>
+                    <i class="bi bi-heart-fill me-2"></i>Proceed to Pay
+                </button>
+            </div>
+
+            <div class="col-lg-5" data-animate>
+                <div class="card card-hover sticky-top" style="top:100px;">
+                    <div class="card-body p-4">
+                        <h5 class="fw-600 mb-3">Where Your Donation Goes</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="d-flex align-items-center gap-3 mb-3 p-2 rounded" style="background:var(--primary-light);">
+                                <i class="bi bi-mortarboard-fill text-primary-custom fs-5"></i>
+                                <div><strong>Education</strong><br><small class="text-muted">Scholarships, digital classrooms, learning centres</small></div>
+                            </li>
+                            <li class="d-flex align-items-center gap-3 mb-3 p-2 rounded" style="background:var(--primary-light);">
+                                <i class="bi bi-heart-pulse-fill text-primary-custom fs-5"></i>
+                                <div><strong>Healthcare</strong><br><small class="text-muted">Health camps, medical relief, nutrition</small></div>
+                            </li>
+                            <li class="d-flex align-items-center gap-3 mb-3 p-2 rounded" style="background:var(--primary-light);">
+                                <i class="bi bi-tools text-primary-custom fs-5"></i>
+                                <div><strong>Skill Training</strong><br><small class="text-muted">Vocational skills, IT training, entrepreneurship</small></div>
+                            </li>
+                            <li class="d-flex align-items-center gap-3 mb-3 p-2 rounded" style="background:var(--primary-light);">
+                                <i class="bi bi-tree-fill text-primary-custom fs-5"></i>
+                                <div><strong>Environment</strong><br><small class="text-muted">Tree plantation, water conservation, clean tech</small></div>
+                            </li>
+                            <li class="d-flex align-items-center gap-3 mb-3 p-2 rounded" style="background:var(--primary-light);">
+                                <i class="bi bi-shield-fill-check text-primary-custom fs-5"></i>
+                                <div><strong>Disaster Relief</strong><br><small class="text-muted">Emergency food, shelter, medical support</small></div>
+                            </li>
+                        </ul>
+                        {% if site_config.eighty_g_number %}
+                        <div class="p-3 rounded-custom mt-3" style="background:rgba(249,168,37,.1);border:1px solid rgba(249,168,37,.3);">
+                            <strong style="color:var(--accent-dark);"><i class="bi bi-award me-2"></i>Tax Benefit</strong>
+                            <p class="mb-0 small mt-1">All donations are eligible for tax exemption under Section 80G of the Income Tax Act.</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+{% if razorpay_key_id %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+{% endif %}
+<script>
+let selectedAmount = 0;
+
+$('.amount-btn').on('click', function() {
+    selectedAmount = parseInt($(this).data('amount'));
+    $('#custom-amount').val(selectedAmount);
+    $('.amount-btn').removeClass('active');
+    $(this).addClass('active');
+    checkReady();
+});
+
+$('#custom-amount').on('input', function() {
+    selectedAmount = parseInt($(this).val()) || 0;
+    $('.amount-btn').removeClass('active');
+    checkReady();
+});
+
+function checkReady() {
+    var ready = selectedAmount > 0 && $('#donor-name').val() && $('#donor-email').val() && $('#donor-phone').val();
+    $('#donate-btn').prop('disabled', !ready);
+}
+$('#donor-name, #donor-email, #donor-phone').on('input', checkReady);
+
+$('#donate-btn').on('click', function() {
+    var data = {
+        amount: selectedAmount,
+        name: $('#donor-name').val(),
+        email: $('#donor-email').val(),
+        phone: $('#donor-phone').val(),
+        pan: $('#donor-pan').val(),
+        address: $('#donor-address').val(),
+    };
+
+    {% if razorpay_key_id %}
+    $.ajax({
+        url: "{% url 'donations:create-order' %}",
+        method: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json',
+        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+        success: function(resp) {
+            var options = {
+                key: "{{ razorpay_key_id }}",
+                amount: resp.amount,
+                currency: "INR",
+                name: "{{ site_config.name }}",
+                order_id: resp.order_id,
+                handler: function(response) {
+                    $.ajax({
+                        url: "{% url 'donations:verify' %}",
+                        method: 'POST',
+                        data: JSON.stringify(response),
+                        contentType: 'application/json',
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                        success: function() { window.location.href = "{% url 'donations:success' %}"; }
+                    });
+                },
+                prefill: {name: data.name, email: data.email, contact: data.phone}
+            };
+            new Razorpay(options).open();
+        },
+        error: function(xhr) { alert(xhr.responseJSON?.error || 'Something went wrong.'); }
+    });
+    {% else %}
+    alert('Payment gateway is being configured. Please try again later.');
+    {% endif %}
+});
+</script>
+{% endblock %}

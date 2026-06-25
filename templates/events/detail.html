@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}{{ event.title }} — {{ site_config.name }}{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'events:list' %}">Events</a></li>
+                <li class="breadcrumb-item active">{{ event.title }}</li>
+            </ol>
+        </nav>
+        <h1>{{ event.title }}</h1>
+        <p><i class="bi bi-calendar3 me-2"></i>{{ event.start_datetime|date:"M d, Y — h:i A" }}
+        {% if event.venue %} &nbsp;|&nbsp; <i class="bi bi-geo-alt me-1"></i>{{ event.venue }}{% endif %}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-8" data-animate>
+                {% if event.cover_image %}
+                <img src="{{ event.cover_image.url }}" class="img-fluid rounded-custom mb-4" alt="{{ event.title }}" style="box-shadow:var(--shadow-lg);">
+                {% endif %}
+                <div class="content" style="font-size:1.05rem;line-height:1.9;">{{ event.description|safe }}</div>
+            </div>
+            <div class="col-lg-4" data-animate>
+                <div class="card card-hover sticky-top" style="top:100px;">
+                    <div class="card-body p-4">
+                        <h5 class="fw-600 mb-3">Register For This Event</h5>
+                        {% if event.capacity %}
+                        <div class="d-flex align-items-center gap-2 mb-3 p-2 rounded" style="background:var(--primary-light);">
+                            <i class="bi bi-people-fill text-primary-custom"></i>
+                            <span class="fw-600 small">{{ event.spots_left }} spots remaining</span>
+                        </div>
+                        {% endif %}
+                        <form method="post" action="{% url 'events:register' event.slug %}">
+                            {% csrf_token %}
+                            {% for field in form %}
+                            <div class="mb-3">
+                                <label class="form-label fw-600">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                            {% endfor %}
+                            <button type="submit" class="btn btn-primary-custom w-100">
+                                <i class="bi bi-check-circle me-2"></i>Register Now
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

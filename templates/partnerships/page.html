@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}CSR & Partnerships — {{ site_config.name }}{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+                <li class="breadcrumb-item active">CSR & Partnerships</li>
+            </ol>
+        </nav>
+        <h1>CSR & Partnerships</h1>
+        <p>Collaborate with us for greater social impact through transparent, measurable projects.</p>
+    </div>
+</section>
+
+<!-- Why Partner -->
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-animate>
+                <img src="{% static 'img/scene-community.svg' %}" alt="Partnership collaboration" class="img-fluid rounded-custom" style="box-shadow:var(--shadow-lg);">
+            </div>
+            <div class="col-lg-6" data-animate>
+                <span class="section-label">Why Partner With Us</span>
+                <h2 class="section-title">Partnerships For Greater Social Impact</h2>
+                <div class="section-divider"></div>
+                <p>The Trust believes that meaningful change happens through collaboration. We aim to work with
+                    government bodies, corporates, CSR foundations, NGOs, institutions, volunteers, and community
+                    groups to plan and implement public welfare programs.</p>
+                <p>We welcome CSR and institutional partnerships for projects aligned with education, healthcare,
+                    livelihood, environment, innovation, and community empowerment. Our approach focuses on need assessment,
+                    responsible implementation, transparent reporting, and measurable outcomes.</p>
+                <div class="row g-3 mt-3">
+                    <div class="col-6">
+                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-primary-custom"></i><span class="fw-600 small">Need Assessment</span></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-primary-custom"></i><span class="fw-600 small">Transparent Reporting</span></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-primary-custom"></i><span class="fw-600 small">Measurable Outcomes</span></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-primary-custom"></i><span class="fw-600 small">Responsible Use of Funds</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CSR Categories -->
+{% if csr_categories %}
+<section class="section section-gray">
+    <div class="container">
+        <div class="text-center" data-animate>
+            <span class="section-label">CSR Projects</span>
+            <h2 class="section-title">Project Categories For CSR Support</h2>
+        </div>
+        <div class="row g-4">
+            {% for cat in csr_categories %}
+            <div class="col-md-4 col-lg-3" data-animate>
+                <div class="focus-card">
+                    <h5>{{ cat.name }}</h5>
+                    {% if cat.description %}<p>{{ cat.description|truncatewords:12 }}</p>{% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Inquiry Form -->
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-7" data-animate>
+                <h3 class="mb-1">Partnership Inquiry</h3>
+                <div class="section-divider mb-4"></div>
+                <p class="text-muted mb-4">Interested in partnering with us? Fill out the form below and our team will get back to you.</p>
+                <form method="post" action="{% url 'partnerships:enquire' %}">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        {% for field in form %}
+                        <div class="{% if field.name == 'message' %}col-12{% else %}col-md-6{% endif %}">
+                            <label class="form-label fw-600">{{ field.label }}</label>
+                            {{ field }}
+                            {% if field.errors %}<div class="text-danger small mt-1">{{ field.errors.0 }}</div>{% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button type="submit" class="btn btn-primary-custom btn-lg mt-4">
+                        <i class="bi bi-send me-2"></i>Submit Inquiry
+                    </button>
+                </form>
+            </div>
+            <div class="col-lg-5" data-animate>
+                <div class="p-4 rounded-custom" style="background:var(--primary-light);">
+                    <h5 class="fw-600 mb-3">Partnership Types</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> CSR Project Implementation</li>
+                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> School & Education Partnership</li>
+                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> Hospital & Healthcare Partnership</li>
+                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> Skill Training Partnership</li>
+                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> Technology Partnership</li>
+                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> Government Scheme Linkage</li>
+                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> Donation & Grant Support</li>
+                        <li class="d-flex align-items-center gap-2"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> Monitoring & Reporting Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partners -->
+{% if partners %}
+<section class="section-sm section-gray">
+    <div class="container">
+        <div class="text-center" data-animate>
+            <h4>Our Current Partners</h4>
+        </div>
+        <div class="row align-items-center justify-content-center g-4 mt-2">
+            {% for partner in partners %}
+            <div class="col-4 col-md-3 col-lg-2 text-center p-3">
+                {% if partner.logo %}
+                <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" class="img-fluid" style="max-height:50px;">
+                {% else %}
+                <span class="fw-600 text-muted">{{ partner.name }}</span>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

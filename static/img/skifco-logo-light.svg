@@ -1,0 +1,11 @@
+<svg width="420" height="120" viewBox="0 0 420 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="30" fill="rgba(255,255,255,0.1)"/>
+  <path d="M36 77.5C43.5 61 54.5 50 60 50C65.5 50 76.5 61 84 77.5" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round"/>
+  <path d="M35 79C45.5 86.5 53 90 60 90C67 90 74.5 86.5 85 79" stroke="#FF9B54" stroke-width="9" stroke-linecap="round"/>
+  <path d="M45 50C45 40.6112 52.6112 33 62 33C62 42.3888 54.3888 50 45 50Z" fill="#F6C453"/>
+  <path d="M55 44C55 35.1634 62.1634 28 71 28C71 36.8366 63.8366 44 55 44Z" fill="#6AC29B"/>
+  <circle cx="60" cy="44" r="7" fill="#FFFFFF"/>
+  <text x="145" y="52" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="800" letter-spacing="1.5">SKIFCO</text>
+  <text x="146" y="82" fill="#DDF7EB" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="3.5">FOUNDATION</text>
+  <text x="146" y="103" fill="#C8D8D1" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="0.8">Education • Health • Skills • Dignity</text>
+</svg>

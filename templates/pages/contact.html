@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us — {{ site_config.name }}{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+                <li class="breadcrumb-item active">Contact Us</li>
+            </ol>
+        </nav>
+        <h1>Contact Us</h1>
+        <p>We would love to hear from you. Reach out to us for any inquiries, partnerships, or support.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-7" data-animate>
+                <h3 class="mb-1">Send Us A Message</h3>
+                <div class="section-divider mb-4"></div>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-600">Full Name *</label>
+                            {{ form.name }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-600">Email *</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-600">Phone</label>
+                            {{ form.phone }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-600">Subject *</label>
+                            {{ form.subject }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-600">Message *</label>
+                            {{ form.message }}
+                        </div>
+                    </div>
+                    {% for field in form %}{% if field.errors %}<div class="alert alert-danger mt-2">{{ field.label }}: {{ field.errors.0 }}</div>{% endif %}{% endfor %}
+                    <button type="submit" class="btn btn-primary-custom btn-lg mt-3">
+                        <i class="bi bi-send me-2"></i>Send Message
+                    </button>
+                </form>
+            </div>
+
+            <div class="col-lg-5" data-animate>
+                <div class="p-4 rounded-custom" style="background:var(--primary-light);">
+                    <h4 class="mb-4">Get In Touch</h4>
+
+                    {% if site_config.address %}
+                    <div class="d-flex gap-3 mb-4">
+                        <div class="focus-icon" style="width:48px;height:48px;border-radius:12px;font-size:1.2rem;flex-shrink:0;">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Office Address</h6>
+                            <p class="text-muted mb-0" style="font-size:.9rem;">{{ site_config.address }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if site_config.contact_email %}
+                    <div class="d-flex gap-3 mb-4">
+                        <div class="focus-icon" style="width:48px;height:48px;border-radius:12px;font-size:1.2rem;flex-shrink:0;">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Email Us</h6>
+                            <p class="text-muted mb-0" style="font-size:.9rem;">{{ site_config.contact_email }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if site_config.contact_phone %}
+                    <div class="d-flex gap-3 mb-4">
+                        <div class="focus-icon" style="width:48px;height:48px;border-radius:12px;font-size:1.2rem;flex-shrink:0;">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Call Us</h6>
+                            <p class="text-muted mb-0" style="font-size:.9rem;">{{ site_config.contact_phone }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if site_config.whatsapp_number %}
+                    <a href="https://wa.me/{{ site_config.whatsapp_number }}" class="btn btn-primary-custom w-100 mt-2" target="_blank">
+                        <i class="bi bi-whatsapp me-2"></i>Chat on WhatsApp
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

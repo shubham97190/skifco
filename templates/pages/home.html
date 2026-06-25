@@ -1,0 +1,611 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}SKIFCO Foundation - Supporting Education, Health, Skills and Dignity in India{% endblock %}
+{% block meta_title %}SKIFCO Foundation - Supporting Education, Health, Skills and Dignity in India{% endblock %}
+{% block meta_description %}SKIFCO Foundation is a charitable trust in India advancing education, healthcare, skill development, and community wellbeing through practical, people-first initiatives.{% endblock %}
+{% block meta_keywords %}SKIFCO Foundation, NGO in India, trust for education, healthcare NGO, skill development, community welfare, children support, public welfare trust{% endblock %}
+{% block og_title %}SKIFCO Foundation - Supporting Education, Health, Skills and Dignity in India{% endblock %}
+{% block og_description %}SKIFCO Foundation is a charitable trust in India advancing education, healthcare, skill development, and community wellbeing through practical, people-first initiatives.{% endblock %}
+{% block canonical_url %}https://www.skifco.com/{% endblock %}
+{% block og_url %}https://www.skifco.com/{% endblock %}
+
+{% block content %}
+<!-- ===== HERO ===== -->
+<section class="hero-section">
+    <div class="hero-orb hero-orb-one"></div>
+    <div class="hero-orb hero-orb-two"></div>
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7 hero-content">
+                <img src="{% static 'img/logo.png' %}" alt="SKIFCO Foundation" class="hero-brand-logo animate-fade-up">
+                <div class="hero-badge animate-fade-up">Charitable trust for public welfare in India</div>
+                <h1 class="display-heading animate-fade-up animate-delay-1">
+                    Supporting education, health, skills, and dignity with people-first action
+                </h1>
+                <p class="lead animate-fade-up animate-delay-2">
+                    SKIFCO Foundation brings together learning support, healthcare access, skill development,
+                    and community care so children, families, and underserved groups can move toward safer,
+                    stronger, and more self-reliant futures.
+                </p>
+                <div class="hero-btns d-flex flex-wrap gap-3 animate-fade-up animate-delay-3">
+                    <a href="{% url 'programs:list' %}" class="btn btn-hero-primary">
+                        <i class="bi bi-arrow-right-circle me-2"></i>Explore Programs
+                    </a>
+                    <a href="{% url 'donations:page' %}" class="btn btn-hero-outline">
+                        <i class="bi bi-heart me-2"></i>Support The Mission
+                    </a>
+                </div>
+
+                <div class="hero-stats animate-fade-up animate-delay-4">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">8+</div>
+                        <div class="hero-stat-label">Mission Areas</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">100+</div>
+                        <div class="hero-stat-label">Activities Planned</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">14</div>
+                        <div class="hero-stat-label">SDGs Aligned</div>
+                    </div>
+                </div>
+
+                <div class="hero-trust-grid animate-fade-up animate-delay-4">
+                    <div class="hero-trust-card">
+                        <span class="hero-trust-icon"><i class="bi bi-book-half"></i></span>
+                        <div>
+                            <strong>Education Access</strong>
+                            <p>Helping children and youth stay connected to learning opportunities.</p>
+                        </div>
+                    </div>
+                    <div class="hero-trust-card">
+                        <span class="hero-trust-icon"><i class="bi bi-heart-pulse"></i></span>
+                        <div>
+                            <strong>Health & Nutrition</strong>
+                            <p>Supporting wellbeing with care, awareness, and responsive outreach.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 hero-img-col">
+                <div class="hero-panel animate-fade-up animate-delay-2">
+                    <div class="hero-panel-head">
+                        <span>Mission Snapshot</span>
+                        <span>skifco.com</span>
+                    </div>
+                    <h3>Connecting essential support systems for communities that need them most.</h3>
+                    <p>We focus on practical interventions that combine compassion, accountability, and long-term community strengthening.</p>
+
+                    <div class="hero-panel-photo">
+                        <img src="{% static 'img/scene-education.svg' %}" alt="Children learning together">
+                        <div class="hero-panel-badge">
+                            <strong>People-first</strong>
+                            <span>Designed for dignity, safety, and real access</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-panel-list">
+                        <div class="hero-panel-item">
+                            <span class="hero-panel-dot"></span>
+                            <div>
+                                <strong>Education and digital inclusion</strong>
+                                <p>Improving access to learning, guidance, and future-readiness.</p>
+                            </div>
+                        </div>
+                        <div class="hero-panel-item">
+                            <span class="hero-panel-dot"></span>
+                            <div>
+                                <strong>Healthcare, environment, and livelihoods</strong>
+                                <p>Creating support that strengthens both families and communities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="trust-strip">
+    <div class="container">
+        <div class="row g-3">
+            <div class="col-md-6 col-xl-3" data-animate>
+                <div class="trust-strip-card">
+                    <i class="bi bi-shield-check"></i>
+                    <div>
+                        <strong>Responsible delivery</strong>
+                        <p>Programs planned with accountability and transparent intent.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3" data-animate>
+                <div class="trust-strip-card">
+                    <i class="bi bi-mortarboard"></i>
+                    <div>
+                        <strong>Education-led change</strong>
+                        <p>Learning remains central to how long-term progress is built.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3" data-animate>
+                <div class="trust-strip-card">
+                    <i class="bi bi-activity"></i>
+                    <div>
+                        <strong>Health & wellbeing</strong>
+                        <p>Community care is treated as a foundation, not an afterthought.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3" data-animate>
+                <div class="trust-strip-card">
+                    <i class="bi bi-people"></i>
+                    <div>
+                        <strong>Community partnership</strong>
+                        <p>Impact grows when volunteers, donors, and local groups work together.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT INTRO ===== -->
+<section class="section section-warm">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-animate>
+                <div class="about-visual-wrap">
+                    <img src="{% static 'img/scene-community.svg' %}" alt="Community empowerment" class="img-fluid rounded-custom about-visual-image">
+                    <div class="about-floating-card">
+                        <span class="about-floating-label">Our Approach</span>
+                        <strong>Care that leads to opportunity</strong>
+                        <p>We look at education, health, livelihood, and dignity as connected needs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-animate>
+                <span class="section-label">Who We Are</span>
+                <h2 class="section-title">A trust for community welfare, practical support, and sustainable change</h2>
+                <div class="section-divider"></div>
+                <p>SKIFCO Foundation has been formed to serve the general public with special attention to underserved, rural, and marginalized communities. Our work is built around practical pathways to learning, healthcare access, skill development, environment care, and social inclusion.</p>
+                <p>We believe real impact happens when support is connected. A child learns better with nutrition and care, a young person grows faster with skills and mentorship, and a community becomes stronger when dignity is protected alongside opportunity.</p>
+                <div class="mission-grid">
+                    <div class="mission-chip">
+                        <i class="bi bi-stars"></i>
+                        <span>People-first delivery</span>
+                    </div>
+                    <div class="mission-chip">
+                        <i class="bi bi-diagram-3"></i>
+                        <span>Cross-sector programs</span>
+                    </div>
+                    <div class="mission-chip">
+                        <i class="bi bi-bar-chart"></i>
+                        <span>Outcome-driven planning</span>
+                    </div>
+                    <div class="mission-chip">
+                        <i class="bi bi-globe-central-south-asia"></i>
+                        <span>Community-rooted action</span>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="{% url 'core:about' %}" class="btn btn-primary-custom">Learn More About Us</a>
+                    <a href="{% url 'core:objectives' %}" class="btn btn-outline-custom">Our Objectives</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== IMPACT STATS ===== -->
+<section class="stats-section section-sm">
+    <div class="container">
+        <div class="row g-4">
+            {% if impact_stats %}
+                {% for stat in impact_stats %}
+                <div class="col-6 col-md-3" data-animate>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="bi {{ stat.icon|default:'bi-graph-up-arrow' }}"></i></div>
+                        <div class="stat-value counter-value" data-target="{{ stat.value }}" data-suffix="{{ stat.suffix }}">0</div>
+                        <div class="stat-label">{{ stat.label }}</div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-6 col-md-3" data-animate>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                        <div class="stat-value counter-value" data-target="8" data-suffix="+">0</div>
+                        <div class="stat-label">Focus Areas</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-animate>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
+                        <div class="stat-value counter-value" data-target="14" data-suffix="">0</div>
+                        <div class="stat-label">SDG Goals Aligned</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-animate>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="bi bi-hand-thumbs-up-fill"></i></div>
+                        <div class="stat-value counter-value" data-target="50" data-suffix="+">0</div>
+                        <div class="stat-label">Skill Programs</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-animate>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="bi bi-globe-asia-australia"></i></div>
+                        <div class="stat-value counter-value" data-target="15" data-suffix="+">0</div>
+                        <div class="stat-label">Partnership Types</div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOCUS AREAS ===== -->
+<section class="section section-gray">
+    <div class="container">
+        <div class="text-center" data-animate>
+            <span class="section-label">What We Do</span>
+            <h2 class="section-title">Our Focus Areas</h2>
+            <p class="section-subtitle">Creating impact across key areas of public welfare through community-focused programs, partnerships, and long-term initiatives.</p>
+        </div>
+
+        <div class="row g-4" data-stagger>
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                    <h5>Education</h5>
+                    <p>Schools, scholarships, digital classrooms, literacy programs for children and youth</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+                    <h5>Healthcare</h5>
+                    <p>Health camps, mobile medical units, nutrition, maternal and child welfare support</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="bi bi-tools"></i></div>
+                    <h5>Skill Development</h5>
+                    <p>IT skills, vocational training, entrepreneurship, women empowerment programs</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="bi bi-tree-fill"></i></div>
+                    <h5>Environment</h5>
+                    <p>Tree plantation, water conservation, waste management, clean technology awareness</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="bi bi-lightbulb-fill"></i></div>
+                    <h5>Innovation & STEM</h5>
+                    <p>Robotics, AI learning, science labs, coding clubs, innovation challenges</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="bi bi-people-fill"></i></div>
+                    <h5>Community Development</h5>
+                    <p>Self-help groups, women & child welfare, cultural preservation, social justice</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="bi bi-shield-fill-check"></i></div>
+                    <h5>Disaster Relief</h5>
+                    <p>Emergency food, medical relief, shelter support, post-disaster rehabilitation</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="bi bi-emoji-smile-fill"></i></div>
+                    <h5>Elderly Care</h5>
+                    <p>Senior citizen support, health check-ups, dignity and livelihood assistance</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY THIS MATTERS ===== -->
+<section class="section why-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5" data-animate>
+                <span class="section-label">Why This Work Matters</span>
+                <h2 class="section-title">Connected Challenges Need Connected Solutions</h2>
+                <div class="section-divider"></div>
+                <p>Many families face multiple challenges at the same time. A child may need education support,
+                    a parent may need livelihood training, an elderly person may need healthcare, and the community
+                    may need clean water, sanitation, and awareness.</p>
+                <p>Our Trust aims to respond to these needs through connected and responsible social programs.</p>
+            </div>
+            <div class="col-lg-7" data-animate>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="why-card">
+                            <div class="why-card-icon"><i class="bi bi-book"></i></div>
+                            <div><h6>Education Access</h6><p>Support first-generation learners, reduce school dropout</p></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="why-card">
+                            <div class="why-card-icon"><i class="bi bi-heart-pulse"></i></div>
+                            <div><h6>Healthcare Access</h6><p>Preventive healthcare and early diagnosis in rural areas</p></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="why-card">
+                            <div class="why-card-icon"><i class="bi bi-briefcase"></i></div>
+                            <div><h6>Livelihood Support</h6><p>Skills training for youth and women entrepreneurship</p></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="why-card">
+                            <div class="why-card-icon"><i class="bi bi-globe2"></i></div>
+                            <div><h6>Sustainable Future</h6><p>Environmental responsibility and climate-resilient communities</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FEATURED PROGRAMS ===== -->
+{% if featured_programs %}
+<section class="section">
+    <div class="container">
+        <div class="text-center" data-animate>
+            <span class="section-label">Our Work</span>
+            <h2 class="section-title">Featured Programs</h2>
+            <p class="section-subtitle">Practical initiatives designed to create lasting impact in education, healthcare, skills, and community welfare.</p>
+        </div>
+
+        <div class="row g-4">
+            {% for program in featured_programs %}
+            <div class="col-md-6 col-lg-4" data-animate>
+                <div class="program-card card">
+                    <div class="img-wrapper">
+                        {% if program.cover_image %}
+                        <img src="{{ program.cover_image.url }}" class="card-img-top" alt="{{ program.title }}">
+                        {% else %}
+                        <img src="{% static 'img/scene-education.svg' %}" class="card-img-top" alt="{{ program.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <span class="program-badge">{{ program.category.name }}</span>
+                        <h5 class="card-title">{{ program.title }}</h5>
+                        <p class="card-text">{{ program.summary|truncatewords:18 }}</p>
+                        <a href="{{ program.get_absolute_url }}" class="btn btn-outline-custom btn-sm">
+                            Learn More <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-5" data-animate>
+            <a href="{% url 'programs:list' %}" class="btn btn-primary-custom btn-lg">
+                View All Programs <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- ===== IMPACT STORIES ===== -->
+{% if stories %}
+<section class="section section-gray">
+    <div class="container">
+        <div class="text-center" data-animate>
+            <span class="section-label">Stories of Impact</span>
+            <h2 class="section-title">Voices From The Community</h2>
+            <p class="section-subtitle">Real stories from people whose lives have been touched by our programs.</p>
+        </div>
+
+        <div class="row g-4">
+            {% for story in stories %}
+            <div class="col-md-4" data-animate>
+                <div class="story-card">
+                    <i class="bi bi-quote quote-icon"></i>
+                    <p style="font-size:.95rem;color:var(--gray-700);line-height:1.8;">{{ story.quote|truncatewords:30 }}</p>
+                    <div class="d-flex align-items-center gap-3 mt-3 pt-3" style="border-top:1px solid var(--gray-200);">
+                        {% if story.photo %}
+                        <img src="{{ story.photo.url }}" class="story-avatar" alt="{{ story.name }}">
+                        {% else %}
+                        <div class="story-avatar d-flex align-items-center justify-content-center" style="background:var(--primary-light);color:var(--primary);font-weight:700;font-size:1.2rem;">{{ story.name|first }}</div>
+                        {% endif %}
+                        <div>
+                            <strong style="color:var(--dark);font-size:.95rem;">{{ story.name }}</strong>
+                            {% if story.program %}<br><small class="text-muted">{{ story.program.title }}</small>{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- ===== UPCOMING EVENTS ===== -->
+{% if upcoming_events %}
+<section class="section">
+    <div class="container">
+        <div class="text-center" data-animate>
+            <span class="section-label">Join Us</span>
+            <h2 class="section-title">Upcoming Events & Camps</h2>
+        </div>
+
+        <div class="row g-4">
+            {% for event in upcoming_events %}
+            <div class="col-md-4" data-animate>
+                <div class="card card-hover h-100">
+                    <div class="position-relative">
+                        {% if event.cover_image %}
+                        <img src="{{ event.cover_image.url }}" class="card-img-top" alt="{{ event.title }}" style="height:200px;object-fit:cover;">
+                        {% else %}
+                        <img src="{% static 'img/scene-events.svg' %}" class="card-img-top" alt="{{ event.title }}" style="height:200px;object-fit:cover;">
+                        {% endif %}
+                        <div class="event-date-badge">
+                            <span class="day">{{ event.start_datetime|date:"d" }}</span>
+                            <span class="month">{{ event.start_datetime|date:"M" }}</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="fw-600">{{ event.title }}</h5>
+                        <p class="text-muted small mb-3">
+                            <i class="bi bi-clock me-1"></i> {{ event.start_datetime|date:"h:i A" }}
+                            {% if event.venue %}<br><i class="bi bi-geo-alt me-1"></i> {{ event.venue }}{% endif %}
+                        </p>
+                        <a href="{{ event.get_absolute_url }}" class="btn btn-outline-custom btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- ===== HOW TO SUPPORT / CSR CTA ===== -->
+<section class="section" style="background:linear-gradient(135deg,#f7f3e8 0%,#ebf6f0 45%,#fffdf8 100%);">
+    <div class="container">
+        <div class="text-center" data-animate>
+            <span class="section-label">Get Involved</span>
+            <h2 class="section-title">How You Can Support</h2>
+            <p class="section-subtitle">There are many ways to contribute to our mission of public welfare. Every effort counts.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3" data-animate>
+                <div class="text-center p-4">
+                    <div class="focus-icon mx-auto" style="background:rgba(239,122,51,.12);color:#ef7a33;"><i class="bi bi-heart-fill"></i></div>
+                    <h5 class="mt-3">Donate</h5>
+                    <p class="small text-muted">Your contribution supports education, healthcare, and community welfare initiatives.</p>
+                    <a href="{% url 'donations:page' %}" class="btn btn-accent btn-sm">Donate Now</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-animate>
+                <div class="text-center p-4">
+                    <div class="focus-icon mx-auto" style="background:rgba(15,91,70,.1);color:var(--primary);"><i class="bi bi-person-plus-fill"></i></div>
+                    <h5 class="mt-3">Volunteer</h5>
+                    <p class="small text-muted">Share your time, skills, and expertise to support our programs and events.</p>
+                    <a href="{% url 'volunteers:signup' %}" class="btn btn-primary-custom btn-sm">Join Us</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-animate>
+                <div class="text-center p-4">
+                    <div class="focus-icon mx-auto" style="background:rgba(224,165,43,.12);color:#b37c0a;"><i class="bi bi-building"></i></div>
+                    <h5 class="mt-3">CSR Partnership</h5>
+                    <p class="small text-muted">Partner with us for impactful CSR projects with transparent reporting.</p>
+                    <a href="{% url 'partnerships:page' %}" class="btn btn-outline-custom btn-sm">Partner With Us</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-animate>
+                <div class="text-center p-4">
+                    <div class="focus-icon mx-auto" style="background:rgba(14,43,35,.08);color:var(--dark);"><i class="bi bi-share-fill"></i></div>
+                    <h5 class="mt-3">Spread The Word</h5>
+                    <p class="small text-muted">Share our mission with friends and family to help us reach more communities.</p>
+                    <a href="{% url 'core:contact' %}" class="btn btn-outline-custom btn-sm">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== DONATE BAND ===== -->
+<section class="donate-band section-sm text-white">
+    <div class="container position-relative" style="z-index:2;">
+        <div class="row align-items-center" data-animate>
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <h2 class="display-heading mb-3" style="color:#fff;font-size:2.2rem;">Every contribution can open a path forward</h2>
+                <p style="color:rgba(255,255,255,.82);font-size:1.05rem;max-width:530px;">
+                    Your donation helps us support education, healthcare, livelihood, environment, and community welfare initiatives with care and accountability.
+                </p>
+            </div>
+            <div class="col-lg-5 text-lg-end">
+                <a href="{% url 'donations:page' %}" class="btn btn-hero-primary btn-lg me-2 mb-2">
+                    <i class="bi bi-heart-fill me-2"></i>Donate Now
+                </a>
+                <a href="{% url 'volunteers:signup' %}" class="btn btn-hero-outline btn-lg mb-2">
+                    <i class="bi bi-person-plus me-2"></i>Volunteer
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== LATEST NEWS ===== -->
+{% if latest_posts %}
+<section class="section section-gray">
+    <div class="container">
+        <div class="text-center" data-animate>
+            <span class="section-label">Latest Updates</span>
+            <h2 class="section-title">Blog & News</h2>
+        </div>
+
+        <div class="row g-4">
+            {% for post in latest_posts %}
+            <div class="col-md-4" data-animate>
+                <div class="card card-hover h-100">
+                    {% if post.cover_image %}
+                    <img src="{{ post.cover_image.url }}" class="card-img-top" alt="{{ post.title }}" style="height:200px;object-fit:cover;">
+                    {% else %}
+                    <img src="{% static 'img/scene-news.svg' %}" class="card-img-top" alt="{{ post.title }}" style="height:200px;object-fit:cover;">
+                    {% endif %}
+                    <div class="card-body p-4">
+                        {% if post.category %}<span class="program-badge">{{ post.category.name }}</span>{% endif %}
+                        <h5 class="fw-600">{{ post.title }}</h5>
+                        <p class="text-muted small">{{ post.excerpt|default:post.body|truncatewords:15 }}</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <small class="text-muted"><i class="bi bi-calendar3 me-1"></i>{{ post.published_at|date:"M d, Y" }}</small>
+                            <a href="{{ post.get_absolute_url }}" class="btn btn-outline-custom btn-sm">Read</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-4" data-animate>
+            <a href="{% url 'news:list' %}" class="btn btn-outline-custom">View All Posts <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- ===== PARTNERS ===== -->
+{% if partners %}
+<section class="section-sm">
+    <div class="container">
+        <div class="text-center mb-4" data-animate>
+            <span class="section-label">Our Supporters</span>
+            <h2 class="section-title">Partners & Collaborators</h2>
+        </div>
+        <div class="row align-items-center justify-content-center g-4" data-animate>
+            {% for partner in partners %}
+            <div class="col-4 col-md-3 col-lg-2 text-center p-3">
+                {% if partner.logo %}
+                <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" class="img-fluid" style="max-height:50px;filter:grayscale(100%);opacity:.6;transition:all .3s;" onmouseover="this.style.filter='none';this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)';this.style.opacity='.6'">
+                {% else %}
+                <span class="fw-600 text-muted">{{ partner.name }}</span>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

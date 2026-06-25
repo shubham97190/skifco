@@ -1,0 +1,9 @@
+Django>=6.0,<7.0
+psycopg2-binary>=2.9
+Pillow>=12.0
+django-environ>=0.14
+redis>=8.0
+WeasyPrint>=69.0
+razorpay>=2.0
+django-solo>=2.5
+easy-thumbnails>=2.10

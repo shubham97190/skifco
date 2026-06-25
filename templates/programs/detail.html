@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}{{ program.title }} — {{ site_config.name }}{% endblock %}
+{% block meta_description %}{{ program.meta_description|default:program.summary }}{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'programs:list' %}">Programs</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'programs:list' %}?category={{ program.category.slug }}">{{ program.category.name }}</a></li>
+                <li class="breadcrumb-item active">{{ program.title }}</li>
+            </ol>
+        </nav>
+        <span class="program-badge" style="background:rgba(255,255,255,.15);color:var(--accent);">{{ program.category.name }}</span>
+        <h1 class="mt-2">{{ program.title }}</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-8" data-animate>
+                {% if program.cover_image %}
+                <img src="{{ program.cover_image.url }}" class="img-fluid rounded-custom mb-4" alt="{{ program.title }}" style="box-shadow:var(--shadow-lg);">
+                {% endif %}
+                <div class="content" style="font-size:1.05rem;line-height:1.9;">
+                    {{ program.body|safe }}
+                </div>
+
+                {% if program.sdg_goals.all %}
+                <div class="mt-5 p-4 rounded-custom bg-soft-primary">
+                    <h5><i class="bi bi-globe2 me-2"></i>SDG Alignment</h5>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        {% for sdg in program.sdg_goals.all %}
+                        <span class="badge" style="background:var(--primary);padding:8px 14px;font-size:.85rem;">SDG {{ sdg.number }}: {{ sdg.title }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="col-lg-4" data-animate>
+                <div class="card card-hover sticky-top" style="top:100px;">
+                    <div class="card-body p-4">
+                        <h5 class="fw-600 mb-3">Support This Program</h5>
+                        <p class="text-muted" style="font-size:.9rem;">Your contribution can help us bring education, healthcare, and livelihood support to communities that need it most.</p>
+                        <a href="{% url 'donations:page' %}" class="btn btn-accent w-100 mb-2">
+                            <i class="bi bi-heart-fill me-2"></i>Donate Now
+                        </a>
+                        <a href="{% url 'volunteers:signup' %}" class="btn btn-outline-custom w-100">
+                            <i class="bi bi-person-plus me-2"></i>Volunteer
+                        </a>
+                        <hr>
+                        <h6 class="fw-600 mt-3">Share This Program</h6>
+                        <div class="d-flex gap-2 mt-2">
+                            <a href="#" class="btn btn-sm" style="background:var(--gray-100);"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-sm" style="background:var(--gray-100);"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="btn btn-sm" style="background:var(--gray-100);"><i class="bi bi-whatsapp"></i></a>
+                            <a href="#" class="btn btn-sm" style="background:var(--gray-100);"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

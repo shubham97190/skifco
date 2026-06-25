@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Apply for Aid — {{ site_config.name }}{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+                <li class="breadcrumb-item active">Apply for Aid</li>
+            </ol>
+        </nav>
+        <h1>Apply For Aid</h1>
+        <p>Submit your application for scholarship, medical aid, skill training, or community support.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-7" data-animate>
+                <h3 class="mb-1">Application Form</h3>
+                <div class="section-divider mb-4"></div>
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="mb-3">
+                        <label class="form-label fw-600">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.help_text %}<small class="text-muted d-block mt-1">{{ field.help_text }}</small>{% endif %}
+                        {% if field.errors %}<div class="text-danger small mt-1">{{ field.errors.0 }}</div>{% endif %}
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary-custom btn-lg mt-3">
+                        <i class="bi bi-send me-2"></i>Submit Application
+                    </button>
+                </form>
+            </div>
+            <div class="col-lg-5" data-animate>
+                <div class="card card-hover">
+                    <div class="card-body p-4">
+                        <h5 class="fw-600 mb-3">How It Works</h5>
+                        <div class="d-flex gap-3 mb-3">
+                            <div style="width:32px;height:32px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;">1</div>
+                            <div><h6 class="mb-0">Submit Application</h6><p class="text-muted small mb-0">Fill the form with your details and need</p></div>
+                        </div>
+                        <div class="d-flex gap-3 mb-3">
+                            <div style="width:32px;height:32px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;">2</div>
+                            <div><h6 class="mb-0">Under Review</h6><p class="text-muted small mb-0">Our team will review your application</p></div>
+                        </div>
+                        <div class="d-flex gap-3 mb-3">
+                            <div style="width:32px;height:32px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;">3</div>
+                            <div><h6 class="mb-0">Approval</h6><p class="text-muted small mb-0">You will be notified of the decision</p></div>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <div style="width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--dark);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;">4</div>
+                            <div><h6 class="mb-0">Support Disbursed</h6><p class="text-muted small mb-0">Aid is provided per the approved plan</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

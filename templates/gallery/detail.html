@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}{{ album.title }} — Gallery — {{ site_config.name }}{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'gallery:list' %}">Gallery</a></li>
+                <li class="breadcrumb-item active">{{ album.title }}</li>
+            </ol>
+        </nav>
+        <h1>{{ album.title }}</h1>
+        {% if album.description %}<p>{{ album.description }}</p>{% endif %}
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-3">
+            {% for item in album.items.all %}
+            <div class="col-6 col-md-4 col-lg-3" data-animate>
+                {% if item.media_type == 'image' and item.file %}
+                <a href="{{ item.file.url }}" data-lightbox="{{ item.file.url }}" data-lightbox-group="album" data-caption="{{ item.caption }}" style="display:block;overflow:hidden;border-radius:var(--radius);">
+                    <img src="{{ item.file.url }}" class="img-fluid" alt="{{ item.caption }}" style="height:200px;width:100%;object-fit:cover;box-shadow:var(--shadow);transition:transform .4s ease;cursor:zoom-in;" loading="lazy" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+                </a>
+                {% elif item.media_type == 'video' and item.video_url %}
+                <div class="ratio ratio-16x9 rounded-custom" style="overflow:hidden;box-shadow:var(--shadow);">
+                    <iframe src="{{ item.video_url }}" allowfullscreen loading="lazy"></iframe>
+                </div>
+                {% endif %}
+                {% if item.caption %}<p class="small text-muted mt-2">{{ item.caption }}</p>{% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

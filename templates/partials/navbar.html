@@ -1,0 +1,56 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg main-navbar sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'core:home' %}">
+            {% if site_config.logo %}
+            <img src="{{ site_config.logo.url }}" alt="{{ site_config.name }}" class="site-brand-image">
+            {% else %}
+            <img src="{% static 'img/logo.png' %}" alt="SKIFCO Foundation" class="site-brand-image">
+            <span class="site-brand-text">
+                <strong>SKIFCO</strong>
+                <small>Foundation</small>
+            </span>
+            {% endif %}
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                <li class="nav-item"><a class="nav-link" href="{% url 'core:home' %}">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'core:about' %}"><i class="bi bi-people me-2 text-muted"></i>About Us</a></li>
+                        <li><a class="dropdown-item" href="{% url 'core:objectives' %}"><i class="bi bi-bullseye me-2 text-muted"></i>Our Objectives</a></li>
+                        <li><a class="dropdown-item" href="{% url 'transparency:list' %}"><i class="bi bi-file-earmark-text me-2 text-muted"></i>Reports</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Programs</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'programs:list' %}"><i class="bi bi-grid me-2 text-muted"></i>All Programs</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'programs:list' %}?category=education"><i class="bi bi-mortarboard me-2 text-muted"></i>Education</a></li>
+                        <li><a class="dropdown-item" href="{% url 'programs:list' %}?category=healthcare"><i class="bi bi-heart-pulse me-2 text-muted"></i>Healthcare</a></li>
+                        <li><a class="dropdown-item" href="{% url 'programs:list' %}?category=skill-development"><i class="bi bi-tools me-2 text-muted"></i>Skill Development</a></li>
+                        <li><a class="dropdown-item" href="{% url 'programs:list' %}?category=environment"><i class="bi bi-tree me-2 text-muted"></i>Environment</a></li>
+                        <li><a class="dropdown-item" href="{% url 'programs:list' %}?category=innovation-stem"><i class="bi bi-lightbulb me-2 text-muted"></i>Innovation & STEM</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'partnerships:page' %}">CSR</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'events:list' %}">Events</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'gallery:list' %}">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'news:list' %}">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'core:contact' %}">Contact</a></li>
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                    <a href="{% url 'donations:page' %}" class="btn btn-donate-nav">
+                        <i class="bi bi-heart-fill me-1"></i> Donate
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

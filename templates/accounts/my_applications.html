@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}My Applications — {{ site_config.name }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4">My Applications</h2>
+    {% if applications %}
+    <div class="table-responsive">
+        <table class="table">
+            <thead><tr><th>Reference</th><th>Aid Type</th><th>Status</th><th>Submitted</th><th></th></tr></thead>
+            <tbody>
+                {% for app in applications %}
+                <tr>
+                    <td>{{ app.reference_no }}</td>
+                    <td>{{ app.aid_type.name }}</td>
+                    <td><span class="badge bg-info">{{ app.get_status_display }}</span></td>
+                    <td>{{ app.created_at|date:"M d, Y" }}</td>
+                    <td><a href="{% url 'accounts:application-status' app.reference_no %}" class="btn btn-sm btn-outline-success">View</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="text-muted">No applications yet.</p>
+    {% endif %}
+</div>
+{% endblock %}
