@@ -12,10 +12,10 @@ env = environ.Env(
 )
 environ.Env.read_env(BASE_DIR / '.env')
 
-SECRET_KEY = env('SECRET_KEY')
-DEBUG = env('DEBUG')
-ALLOWED_HOSTS = env('ALLOWED_HOSTS')
-CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED_ORIGINS')
+SECRET_KEY = 'django-insecure-l$35%srbov99uam2kdfri6q&o+&bnik3=c(+@@4i&9*tdculb#'
+DEBUG = True
+ALLOWED_HOSTS = ['*']
+# CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED_ORIGINS')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
