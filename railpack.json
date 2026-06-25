@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schema.railpack.com",
+  "provider": "python",
+  "packages": {
+    "python": "3.12"
+  },
+  "buildAptPackages": [
+    "libcairo2-dev",
+    "libpango1.0-dev",
+    "libgdk-pixbuf-2.0-dev",
+    "libffi-dev",
+    "shared-mime-info"
+  ],
+  "steps": {
+    "build": {
+      "variables": {
+        "DJANGO_SETTINGS_MODULE": "config.settings.prod"
+      },
+      "commands": [
+        "...",
+        "python manage.py collectstatic --noinput"
+      ]
+    }
+  },
+  "deploy": {
+    "variables": {
+      "DJANGO_SETTINGS_MODULE": "config.settings.prod",
+      "PYTHONUNBUFFERED": "1"
+    },
+    "aptPackages": [
+      "libcairo2",
+      "libpango-1.0-0",
+      "libpangoft2-1.0-0",
+      "libgdk-pixbuf-2.0-0",
+      "libffi-dev",
+      "shared-mime-info"
+    ],
+    "startCommand": "python manage.py migrate --noinput && gunicorn config.wsgi:application --bind 0.0.0.0:${PORT:-8000}"
+  }
+}
