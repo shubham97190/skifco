@@ -75,7 +75,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='sqlite:///db.sqlite3'),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('DB_NAME', default='neondb'),
+        'USER': env('DB_USER', default='neondb_owner'),
+        'PASSWORD': env('DB_PASSWORD', default='npg_IdQ5HqOK0Sou'),
+        'HOST': env('DB_HOST', default='ep-polished-unit-at94rma3-pooler.c-9.us-east-1.aws.neon.tech'),
+        'PORT': env('DB_PORT', default='5432'),
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
+    }
 }
 
 AUTH_PASSWORD_VALIDATORS = [

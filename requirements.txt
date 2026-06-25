@@ -1,5 +1,5 @@
 Django>=6.0,<7.0
-psycopg2-binary>=2.9
+psycopg[binary,pool]>=3.3
 Pillow>=12.0
 django-environ>=0.14
 redis>=8.0
