@@ -29,11 +29,16 @@
                     stronger, and more self-reliant futures.
                 </p>
                 <div class="hero-btns d-flex flex-wrap gap-3 animate-fade-up animate-delay-3">
-                    <a href="{% url 'programs:list' %}" class="btn btn-hero-primary">
-                        <i class="bi bi-arrow-right-circle me-2"></i>Explore Programs
+                    <a href="{% url 'donations:page' %}" class="btn btn-hero-primary">
+                        <i class="bi bi-heart me-2"></i>Donate Now
                     </a>
-                    <a href="{% url 'donations:page' %}" class="btn btn-hero-outline">
-                        <i class="bi bi-heart me-2"></i>Support The Mission
+                    <a href="{% url 'beneficiaries:apply' %}" class="btn btn-hero-outline">
+                        <i class="bi bi-file-earmark-text me-2"></i>Apply for Aid
+                    </a>
+                </div>
+                <div class="animate-fade-up animate-delay-4" style="margin-top:.75rem;">
+                    <a href="{% url 'programs:list' %}" style="color:rgba(255,255,255,.6);font-size:.88rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+                        <i class="bi bi-arrow-right"></i> Explore Our Programs
                     </a>
                 </div>
 
@@ -73,35 +78,46 @@
             <div class="col-lg-5 hero-img-col">
                 <div class="hero-panel animate-fade-up animate-delay-2">
                     <div class="hero-panel-head">
-                        <span>Mission Snapshot</span>
-                        <span>skifco.com</span>
+                        <span>SKIFCO Foundation</span>
+                        <span class="hp-live-dot"><span></span>Active Initiative</span>
                     </div>
-                    <h3>Connecting essential support systems for communities that need them most.</h3>
-                    <p>We focus on practical interventions that combine compassion, accountability, and long-term community strengthening.</p>
 
                     <div class="hero-panel-photo">
-                        <img src="{% static 'img/scene-education.svg' %}" alt="Children learning together">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80" alt="Children learning together" loading="lazy">
                         <div class="hero-panel-badge">
                             <strong>People-first</strong>
-                            <span>Designed for dignity, safety, and real access</span>
+                            <span>Education, health, and dignity for all</span>
                         </div>
                     </div>
 
-                    <div class="hero-panel-list">
-                        <div class="hero-panel-item">
-                            <span class="hero-panel-dot"></span>
+                    <div class="hmp-grid">
+                        <div class="hmp-item">
+                            <span class="hmp-icon hmp-blue"><i class="bi bi-mortarboard-fill"></i></span>
                             <div>
-                                <strong>Education and digital inclusion</strong>
-                                <p>Improving access to learning, guidance, and future-readiness.</p>
+                                <strong>Education & Literacy</strong>
+                                <p>Schools · Scholarships · Digital learning</p>
                             </div>
                         </div>
-                        <div class="hero-panel-item">
-                            <span class="hero-panel-dot"></span>
+                        <div class="hmp-item">
+                            <span class="hmp-icon hmp-rose"><i class="bi bi-heart-pulse-fill"></i></span>
                             <div>
-                                <strong>Healthcare, environment, and livelihoods</strong>
-                                <p>Creating support that strengthens both families and communities.</p>
+                                <strong>Healthcare & Relief</strong>
+                                <p>Health camps · Medical aid · Nutrition</p>
                             </div>
                         </div>
+                        <div class="hmp-item">
+                            <span class="hmp-icon hmp-teal"><i class="bi bi-tools"></i></span>
+                            <div>
+                                <strong>Skill Development</strong>
+                                <p>IT skills · Vocational · Entrepreneurship</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hmp-stats">
+                        <div><span class="hmp-stat-val">8+</span><span class="hmp-stat-lbl">Programs</span></div>
+                        <div><span class="hmp-stat-val">14</span><span class="hmp-stat-lbl">SDGs</span></div>
+                        <div><span class="hmp-stat-val">50+</span><span class="hmp-stat-lbl">Skills</span></div>
                     </div>
                 </div>
             </div>
@@ -112,39 +128,39 @@
 <section class="trust-strip">
     <div class="container">
         <div class="row g-3">
-            <div class="col-md-6 col-xl-3" data-animate>
+            <div class="col-6 col-md-6 col-xl-3" data-animate>
                 <div class="trust-strip-card">
                     <i class="bi bi-shield-check"></i>
                     <div>
-                        <strong>Responsible delivery</strong>
-                        <p>Programs planned with accountability and transparent intent.</p>
+                        <strong>Responsible Delivery</strong>
+                        <p>Programs built with accountability and transparent intent.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-xl-3" data-animate>
+            <div class="col-6 col-md-6 col-xl-3" data-animate>
                 <div class="trust-strip-card">
                     <i class="bi bi-mortarboard"></i>
                     <div>
-                        <strong>Education-led change</strong>
+                        <strong>Education-Led Change</strong>
                         <p>Learning remains central to how long-term progress is built.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-xl-3" data-animate>
+            <div class="col-6 col-md-6 col-xl-3" data-animate>
                 <div class="trust-strip-card">
                     <i class="bi bi-activity"></i>
                     <div>
-                        <strong>Health & wellbeing</strong>
-                        <p>Community care is treated as a foundation, not an afterthought.</p>
+                        <strong>Health & Wellbeing</strong>
+                        <p>Community care treated as a foundation, not afterthought.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-xl-3" data-animate>
+            <div class="col-6 col-md-6 col-xl-3" data-animate>
                 <div class="trust-strip-card">
                     <i class="bi bi-people"></i>
                     <div>
-                        <strong>Community partnership</strong>
-                        <p>Impact grows when volunteers, donors, and local groups work together.</p>
+                        <strong>Community Partnership</strong>
+                        <p>Impact grows when volunteers, donors, and communities unite.</p>
                     </div>
                 </div>
             </div>
@@ -158,7 +174,7 @@
         <div class="row align-items-center g-5">
             <div class="col-lg-6" data-animate>
                 <div class="about-visual-wrap">
-                    <img src="{% static 'img/scene-community.svg' %}" alt="Community empowerment" class="img-fluid rounded-custom about-visual-image">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=700&q=80" alt="Community empowerment" class="img-fluid rounded-custom about-visual-image" loading="lazy">
                     <div class="about-floating-card">
                         <span class="about-floating-label">Our Approach</span>
                         <strong>Care that leads to opportunity</strong>
@@ -259,56 +275,56 @@
         <div class="row g-4" data-stagger>
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="focus-card">
-                    <div class="focus-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                    <div class="focus-icon focus-blue"><i class="bi bi-mortarboard-fill"></i></div>
                     <h5>Education</h5>
                     <p>Schools, scholarships, digital classrooms, literacy programs for children and youth</p>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="focus-card">
-                    <div class="focus-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+                    <div class="focus-icon focus-rose"><i class="bi bi-heart-pulse-fill"></i></div>
                     <h5>Healthcare</h5>
                     <p>Health camps, mobile medical units, nutrition, maternal and child welfare support</p>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="focus-card">
-                    <div class="focus-icon"><i class="bi bi-tools"></i></div>
+                    <div class="focus-icon focus-teal"><i class="bi bi-tools"></i></div>
                     <h5>Skill Development</h5>
                     <p>IT skills, vocational training, entrepreneurship, women empowerment programs</p>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="focus-card">
-                    <div class="focus-icon"><i class="bi bi-tree-fill"></i></div>
+                    <div class="focus-icon focus-green"><i class="bi bi-tree-fill"></i></div>
                     <h5>Environment</h5>
                     <p>Tree plantation, water conservation, waste management, clean technology awareness</p>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="focus-card">
-                    <div class="focus-icon"><i class="bi bi-lightbulb-fill"></i></div>
+                    <div class="focus-icon focus-purple"><i class="bi bi-lightbulb-fill"></i></div>
                     <h5>Innovation & STEM</h5>
                     <p>Robotics, AI learning, science labs, coding clubs, innovation challenges</p>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="focus-card">
-                    <div class="focus-icon"><i class="bi bi-people-fill"></i></div>
+                    <div class="focus-icon focus-orange"><i class="bi bi-people-fill"></i></div>
                     <h5>Community Development</h5>
                     <p>Self-help groups, women & child welfare, cultural preservation, social justice</p>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="focus-card">
-                    <div class="focus-icon"><i class="bi bi-shield-fill-check"></i></div>
+                    <div class="focus-icon focus-amber"><i class="bi bi-shield-fill-check"></i></div>
                     <h5>Disaster Relief</h5>
                     <p>Emergency food, medical relief, shelter support, post-disaster rehabilitation</p>
                 </div>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="focus-card">
-                    <div class="focus-icon"><i class="bi bi-emoji-smile-fill"></i></div>
+                    <div class="focus-icon focus-pink"><i class="bi bi-emoji-smile-fill"></i></div>
                     <h5>Elderly Care</h5>
                     <p>Senior citizen support, health check-ups, dignity and livelihood assistance</p>
                 </div>
@@ -363,24 +379,37 @@
 </section>
 
 <!-- ===== FEATURED PROGRAMS ===== -->
-{% if featured_programs %}
 <section class="section">
     <div class="container">
         <div class="text-center" data-animate>
             <span class="section-label">Our Work</span>
             <h2 class="section-title">Featured Programs</h2>
-            <p class="section-subtitle">Practical initiatives designed to create lasting impact in education, healthcare, skills, and community welfare.</p>
+            <p class="section-subtitle">Practical initiatives designed to create lasting impact in education, healthcare, skills, and community welfare across India.</p>
         </div>
 
         <div class="row g-4">
+        {% if featured_programs %}
             {% for program in featured_programs %}
             <div class="col-md-6 col-lg-4" data-animate>
                 <div class="program-card card">
                     <div class="img-wrapper">
                         {% if program.cover_image %}
-                        <img src="{{ program.cover_image.url }}" class="card-img-top" alt="{{ program.title }}">
+                        <img src="{{ program.cover_image.url }}" class="card-img-top" alt="{{ program.title }}" loading="lazy">
                         {% else %}
-                        <img src="{% static 'img/scene-education.svg' %}" class="card-img-top" alt="{{ program.title }}">
+                        <div class="program-card-placeholder" data-category="{{ program.category.slug }}">
+                            <span class="pcp-icon">
+                                {% if program.category.slug == 'education' %}<i class="bi bi-mortarboard-fill"></i>
+                                {% elif program.category.slug == 'healthcare' %}<i class="bi bi-heart-pulse-fill"></i>
+                                {% elif program.category.slug == 'skill-development' %}<i class="bi bi-tools"></i>
+                                {% elif program.category.slug == 'environment' %}<i class="bi bi-tree-fill"></i>
+                                {% elif program.category.slug == 'innovation-stem' %}<i class="bi bi-lightbulb-fill"></i>
+                                {% elif program.category.slug == 'community-development' %}<i class="bi bi-people-fill"></i>
+                                {% elif program.category.slug == 'disaster-relief' %}<i class="bi bi-shield-fill-check"></i>
+                                {% elif program.category.slug == 'elderly-care' %}<i class="bi bi-emoji-smile-fill"></i>
+                                {% else %}<i class="bi bi-stars"></i>{% endif %}
+                            </span>
+                            <span class="pcp-label">{{ program.category.name }}</span>
+                        </div>
                         {% endif %}
                     </div>
                     <div class="card-body">
@@ -394,6 +423,105 @@
                 </div>
             </div>
             {% endfor %}
+        {% else %}
+            <!-- Static fallback when no featured programs in DB yet -->
+            <div class="col-md-6 col-lg-4" data-animate>
+                <div class="program-card card">
+                    <div class="program-card-placeholder fp-edu">
+                        <span class="pcp-icon pcp-blue"><i class="bi bi-mortarboard-fill"></i></span>
+                        <span class="pcp-label">Education</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="program-badge">Education</span>
+                        <h5 class="card-title">Digital Classroom Initiative</h5>
+                        <p class="card-text">Equipping rural schools with digital tools, interactive content, and trained teachers to improve learning outcomes for children.</p>
+                        <a href="{% url 'programs:list' %}?category=education" class="btn btn-outline-custom btn-sm">
+                            Learn More <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4" data-animate>
+                <div class="program-card card">
+                    <div class="program-card-placeholder fp-health">
+                        <span class="pcp-icon pcp-rose"><i class="bi bi-heart-pulse-fill"></i></span>
+                        <span class="pcp-label">Healthcare</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="program-badge">Healthcare</span>
+                        <h5 class="card-title">Mobile Health Camp Program</h5>
+                        <p class="card-text">Bringing free medical check-ups, essential medicines, and health awareness to remote communities that lack basic healthcare access.</p>
+                        <a href="{% url 'programs:list' %}?category=healthcare" class="btn btn-outline-custom btn-sm">
+                            Learn More <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4" data-animate>
+                <div class="program-card card">
+                    <div class="program-card-placeholder fp-skill">
+                        <span class="pcp-icon pcp-teal"><i class="bi bi-tools"></i></span>
+                        <span class="pcp-label">Skill Development</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="program-badge">Skill Development</span>
+                        <h5 class="card-title">Women's Livelihood Skilling</h5>
+                        <p class="card-text">Practical IT, stitching, and entrepreneurship training for women from low-income households — creating pathways to income and independence.</p>
+                        <a href="{% url 'programs:list' %}?category=skill-development" class="btn btn-outline-custom btn-sm">
+                            Learn More <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4" data-animate>
+                <div class="program-card card">
+                    <div class="program-card-placeholder fp-env">
+                        <span class="pcp-icon pcp-green"><i class="bi bi-tree-fill"></i></span>
+                        <span class="pcp-label">Environment</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="program-badge">Environment</span>
+                        <h5 class="card-title">Community Plantation Drive</h5>
+                        <p class="card-text">Engaging villages, schools, and youth groups in tree plantation, waste management, and water conservation for a greener tomorrow.</p>
+                        <a href="{% url 'programs:list' %}?category=environment" class="btn btn-outline-custom btn-sm">
+                            Learn More <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4" data-animate>
+                <div class="program-card card">
+                    <div class="program-card-placeholder fp-stem">
+                        <span class="pcp-icon pcp-purple"><i class="bi bi-lightbulb-fill"></i></span>
+                        <span class="pcp-label">Innovation & STEM</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="program-badge">Innovation & STEM</span>
+                        <h5 class="card-title">Robotics & Science Lab</h5>
+                        <p class="card-text">Hands-on science, coding, and robotics programs in government schools — inspiring curiosity, creativity, and future-ready thinking in young learners.</p>
+                        <a href="{% url 'programs:list' %}?category=innovation-stem" class="btn btn-outline-custom btn-sm">
+                            Learn More <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4" data-animate>
+                <div class="program-card card">
+                    <div class="program-card-placeholder fp-comm">
+                        <span class="pcp-icon pcp-orange"><i class="bi bi-people-fill"></i></span>
+                        <span class="pcp-label">Community Development</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="program-badge">Community Development</span>
+                        <h5 class="card-title">Self-Help Group Support</h5>
+                        <p class="card-text">Building self-help groups for women, youth, and marginalized communities — strengthening local economies and promoting social inclusion.</p>
+                        <a href="{% url 'programs:list' %}?category=community-development" class="btn btn-outline-custom btn-sm">
+                            Learn More <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
         </div>
 
         <div class="text-center mt-5" data-animate>
@@ -403,7 +531,6 @@
         </div>
     </div>
 </section>
-{% endif %}
 
 <!-- ===== IMPACT STORIES ===== -->
 {% if stories %}
@@ -490,35 +617,35 @@
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-lg-3" data-animate>
-                <div class="text-center p-4">
-                    <div class="focus-icon mx-auto" style="background:rgba(239,122,51,.12);color:#ef7a33;"><i class="bi bi-heart-fill"></i></div>
-                    <h5 class="mt-3">Donate</h5>
-                    <p class="small text-muted">Your contribution supports education, healthcare, and community welfare initiatives.</p>
+                <div class="support-card">
+                    <div class="support-icon" style="background:rgba(239,122,51,.12);color:#ef7a33;"><i class="bi bi-heart-fill"></i></div>
+                    <h5>Donate</h5>
+                    <p>Your contribution supports education, healthcare, and community welfare initiatives across our programs.</p>
                     <a href="{% url 'donations:page' %}" class="btn btn-accent btn-sm">Donate Now</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3" data-animate>
-                <div class="text-center p-4">
-                    <div class="focus-icon mx-auto" style="background:rgba(15,91,70,.1);color:var(--primary);"><i class="bi bi-person-plus-fill"></i></div>
-                    <h5 class="mt-3">Volunteer</h5>
-                    <p class="small text-muted">Share your time, skills, and expertise to support our programs and events.</p>
-                    <a href="{% url 'volunteers:signup' %}" class="btn btn-primary-custom btn-sm">Join Us</a>
+                <div class="support-card">
+                    <div class="support-icon" style="background:rgba(15,91,70,.1);color:var(--primary);"><i class="bi bi-file-earmark-text"></i></div>
+                    <h5>Apply for Aid</h5>
+                    <p>If you or your family needs support — scholarships, medical help, skill training, or relief — apply here.</p>
+                    <a href="{% url 'beneficiaries:apply' %}" class="btn btn-primary-custom btn-sm">Apply Now</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3" data-animate>
-                <div class="text-center p-4">
-                    <div class="focus-icon mx-auto" style="background:rgba(224,165,43,.12);color:#b37c0a;"><i class="bi bi-building"></i></div>
-                    <h5 class="mt-3">CSR Partnership</h5>
-                    <p class="small text-muted">Partner with us for impactful CSR projects with transparent reporting.</p>
+                <div class="support-card">
+                    <div class="support-icon" style="background:rgba(15,91,70,.1);color:var(--primary);"><i class="bi bi-person-plus-fill"></i></div>
+                    <h5>Volunteer</h5>
+                    <p>Share your time, skills, and expertise to support our programs, health camps, and community events.</p>
+                    <a href="{% url 'volunteers:signup' %}" class="btn btn-outline-custom btn-sm">Join Us</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-animate>
+                <div class="support-card">
+                    <div class="support-icon" style="background:rgba(224,165,43,.12);color:#b37c0a;"><i class="bi bi-building"></i></div>
+                    <h5>CSR Partnership</h5>
+                    <p>Partner with us for impactful CSR projects aligned with education, health, and community welfare goals.</p>
                     <a href="{% url 'partnerships:page' %}" class="btn btn-outline-custom btn-sm">Partner With Us</a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3" data-animate>
-                <div class="text-center p-4">
-                    <div class="focus-icon mx-auto" style="background:rgba(14,43,35,.08);color:var(--dark);"><i class="bi bi-share-fill"></i></div>
-                    <h5 class="mt-3">Spread The Word</h5>
-                    <p class="small text-muted">Share our mission with friends and family to help us reach more communities.</p>
-                    <a href="{% url 'core:contact' %}" class="btn btn-outline-custom btn-sm">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -534,14 +661,33 @@
                 <p style="color:rgba(255,255,255,.82);font-size:1.05rem;max-width:530px;">
                     Your donation helps us support education, healthcare, livelihood, environment, and community welfare initiatives with care and accountability.
                 </p>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:1.4rem;">
+                    <div style="background:rgba(255,255,255,.08);border-radius:12px;padding:12px 18px;display:flex;align-items:center;gap:10px;">
+                        <i class="bi bi-mortarboard-fill" style="color:var(--accent);font-size:1.1rem;"></i>
+                        <div><strong style="color:#fff;font-size:.88rem;display:block;">Education</strong><small style="color:rgba(255,255,255,.6);">Scholarships & classrooms</small></div>
+                    </div>
+                    <div style="background:rgba(255,255,255,.08);border-radius:12px;padding:12px 18px;display:flex;align-items:center;gap:10px;">
+                        <i class="bi bi-heart-pulse-fill" style="color:var(--accent);font-size:1.1rem;"></i>
+                        <div><strong style="color:#fff;font-size:.88rem;display:block;">Healthcare</strong><small style="color:rgba(255,255,255,.6);">Medical camps & relief</small></div>
+                    </div>
+                    <div style="background:rgba(255,255,255,.08);border-radius:12px;padding:12px 18px;display:flex;align-items:center;gap:10px;">
+                        <i class="bi bi-tools" style="color:var(--accent);font-size:1.1rem;"></i>
+                        <div><strong style="color:#fff;font-size:.88rem;display:block;">Skill Training</strong><small style="color:rgba(255,255,255,.6);">Livelihoods & jobs</small></div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-5 text-lg-end">
                 <a href="{% url 'donations:page' %}" class="btn btn-hero-primary btn-lg me-2 mb-2">
                     <i class="bi bi-heart-fill me-2"></i>Donate Now
                 </a>
-                <a href="{% url 'volunteers:signup' %}" class="btn btn-hero-outline btn-lg mb-2">
-                    <i class="bi bi-person-plus me-2"></i>Volunteer
+                <a href="{% url 'beneficiaries:apply' %}" class="btn btn-hero-outline btn-lg mb-2">
+                    <i class="bi bi-file-earmark-text me-2"></i>Apply for Aid
                 </a>
+                <div style="margin-top:.6rem;">
+                    <a href="{% url 'volunteers:signup' %}" style="color:rgba(255,255,255,.55);font-size:.88rem;text-decoration:none;">
+                        <i class="bi bi-person-plus me-1"></i>Or volunteer with us
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -585,6 +731,33 @@
     </div>
 </section>
 {% endif %}
+
+<!-- ===== SDG ALIGNMENT ===== -->
+<section class="section-sm sdg-section">
+    <div class="container">
+        <div class="text-center" data-animate>
+            <span class="section-label">Global Goals Aligned</span>
+            <h2 class="section-title" style="font-size:2rem;">Contributing Towards 14 SDGs</h2>
+            <p class="section-subtitle" style="margin-bottom:1.5rem;">Our programs are aligned with the UN Sustainable Development Goals and India's national development priorities.</p>
+        </div>
+        <div class="sdg-grid" data-animate>
+            <div class="sdg-chip"><span class="sdg-num">1</span><span>No Poverty</span></div>
+            <div class="sdg-chip"><span class="sdg-num">2</span><span>Zero Hunger</span></div>
+            <div class="sdg-chip"><span class="sdg-num">3</span><span>Good Health</span></div>
+            <div class="sdg-chip"><span class="sdg-num">4</span><span>Quality Education</span></div>
+            <div class="sdg-chip"><span class="sdg-num">5</span><span>Gender Equality</span></div>
+            <div class="sdg-chip"><span class="sdg-num">6</span><span>Clean Water</span></div>
+            <div class="sdg-chip"><span class="sdg-num">7</span><span>Clean Energy</span></div>
+            <div class="sdg-chip"><span class="sdg-num">8</span><span>Decent Work</span></div>
+            <div class="sdg-chip"><span class="sdg-num">9</span><span>Innovation</span></div>
+            <div class="sdg-chip"><span class="sdg-num">10</span><span>Reduced Inequalities</span></div>
+            <div class="sdg-chip"><span class="sdg-num">11</span><span>Sustainable Cities</span></div>
+            <div class="sdg-chip"><span class="sdg-num">12</span><span>Responsible Use</span></div>
+            <div class="sdg-chip"><span class="sdg-num">13</span><span>Climate Action</span></div>
+            <div class="sdg-chip"><span class="sdg-num">17</span><span>Partnerships</span></div>
+        </div>
+    </div>
+</section>
 
 <!-- ===== PARTNERS ===== -->
 {% if partners %}

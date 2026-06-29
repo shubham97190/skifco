@@ -46,6 +46,11 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'news:list' %}">Blog</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'core:contact' %}">Contact</a></li>
                 <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                    <a href="{% url 'beneficiaries:apply' %}" class="btn btn-apply-nav">
+                        <i class="bi bi-file-earmark-text me-1"></i> Apply for Aid
+                    </a>
+                </li>
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
                     <a href="{% url 'donations:page' %}" class="btn btn-donate-nav">
                         <i class="bi bi-heart-fill me-1"></i> Donate
                     </a>

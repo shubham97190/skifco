@@ -70,13 +70,13 @@
 
     {% include "partials/footer.html" %}
 
-    <!-- Mobile Sticky Donate Bar -->
+    <!-- Mobile Sticky Bar -->
     <div class="mobile-donate-bar">
         <a href="{% url 'donations:page' %}" class="btn" style="background:var(--warm);color:#fff;">
             <i class="bi bi-heart-fill me-1"></i> Donate
         </a>
-        <a href="{% url 'volunteers:signup' %}" class="btn btn-outline-custom">
-            <i class="bi bi-person-plus me-1"></i> Volunteer
+        <a href="{% url 'beneficiaries:apply' %}" class="btn btn-outline-custom">
+            <i class="bi bi-file-earmark-text me-1"></i> Apply for Aid
         </a>
     </div>
 
@@ -114,11 +114,28 @@
         var lbImages = [];
         var lbIdx = 0;
 
+        // Mark active top-level nav links (skip href="#" dropdown toggles)
         navLinks.forEach(function(link) {
             var href = link.getAttribute('href');
-            if (!href) return;
-            if ((href !== '/' && currentPath.indexOf(href) === 0) || (href === '/' && currentPath === '/')) {
+            if (!href || href === '#') return;
+            var linkPath = href.split('?')[0];
+            if ((linkPath !== '/' && currentPath.startsWith(linkPath)) || (linkPath === '/' && currentPath === '/')) {
                 link.classList.add('active');
+            }
+        });
+
+        // Mark active dropdown items AND activate parent dropdown toggle
+        document.querySelectorAll('.main-navbar .dropdown-item[href]').forEach(function(item) {
+            var href = item.getAttribute('href');
+            if (!href || href === '#') return;
+            var linkPath = href.split('?')[0];
+            if (linkPath !== '/' && currentPath.startsWith(linkPath)) {
+                item.classList.add('active');
+                var parentDropdown = item.closest('.dropdown');
+                if (parentDropdown) {
+                    var toggle = parentDropdown.querySelector('.dropdown-toggle');
+                    if (toggle) toggle.classList.add('active');
+                }
             }
         });
 

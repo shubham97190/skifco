@@ -4,7 +4,9 @@
 {% block title %}CSR & Partnerships — {{ site_config.name }}{% endblock %}
 
 {% block content %}
-<section class="page-banner">
+
+<!-- ===== PAGE BANNER ===== -->
+<section class="page-banner csr-banner">
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -12,40 +14,98 @@
                 <li class="breadcrumb-item active">CSR & Partnerships</li>
             </ol>
         </nav>
-        <h1>CSR & Partnerships</h1>
-        <p>Collaborate with us for greater social impact through transparent, measurable projects.</p>
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <span class="section-label d-inline-block mb-2">Collaborate With Us</span>
+                <h1>CSR &amp; Strategic Partnerships</h1>
+                <p>Join hands with SKIFCO Foundation to design, fund, and deliver measurable social impact programs — with complete transparency and responsible project execution.</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="#csr-inquiry" class="btn btn-donate-nav">
+                        <i class="bi bi-envelope-fill me-2"></i>Send Inquiry
+                    </a>
+                    <a href="#csr-categories" class="btn btn-apply-nav">
+                        <i class="bi bi-grid me-2"></i>View Project Areas
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block">
+                <div class="csr-banner-stats">
+                    <div class="csrbs-card">
+                        <span class="csrbs-val">9+</span>
+                        <span class="csrbs-lbl">Project Categories</span>
+                    </div>
+                    <div class="csrbs-card">
+                        <span class="csrbs-val">8+</span>
+                        <span class="csrbs-lbl">Focus Areas</span>
+                    </div>
+                    <div class="csrbs-card">
+                        <span class="csrbs-val">14</span>
+                        <span class="csrbs-lbl">SDGs Aligned</span>
+                    </div>
+                    <div class="csrbs-card">
+                        <span class="csrbs-val">100%</span>
+                        <span class="csrbs-lbl">Transparent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Why Partner -->
+<!-- ===== WHY PARTNER ===== -->
 <section class="section">
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-6" data-animate>
-                <img src="{% static 'img/scene-community.svg' %}" alt="Partnership collaboration" class="img-fluid rounded-custom" style="box-shadow:var(--shadow-lg);">
+                <div class="csr-visual-wrap">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=80"
+                         alt="Partnership collaboration"
+                         class="img-fluid rounded-custom csr-main-img"
+                         loading="lazy">
+                    <div class="csr-trust-badge">
+                        <i class="bi bi-patch-check-fill"></i>
+                        <div>
+                            <strong>Registered Trust</strong>
+                            <span>12A &amp; 80G eligible</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-6" data-animate>
                 <span class="section-label">Why Partner With Us</span>
-                <h2 class="section-title">Partnerships For Greater Social Impact</h2>
+                <h2 class="section-title">Build Impact That Lasts Beyond A Financial Year</h2>
                 <div class="section-divider"></div>
-                <p>The Trust believes that meaningful change happens through collaboration. We aim to work with
-                    government bodies, corporates, CSR foundations, NGOs, institutions, volunteers, and community
-                    groups to plan and implement public welfare programs.</p>
-                <p>We welcome CSR and institutional partnerships for projects aligned with education, healthcare,
-                    livelihood, environment, innovation, and community empowerment. Our approach focuses on need assessment,
-                    responsible implementation, transparent reporting, and measurable outcomes.</p>
-                <div class="row g-3 mt-3">
-                    <div class="col-6">
-                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-primary-custom"></i><span class="fw-600 small">Need Assessment</span></div>
+                <p>SKIFCO Foundation believes meaningful change happens only through collaboration. We work with corporates, CSR foundations, government bodies, NGOs, and institutions to plan and implement public welfare programs that are grounded in real community need.</p>
+                <p>We welcome CSR and institutional partnerships for projects aligned with education, healthcare, livelihood, environment, innovation, and community empowerment. Every rupee is tracked, every outcome is documented.</p>
+
+                <div class="csr-why-grid">
+                    <div class="csr-why-item">
+                        <span class="csr-why-icon"><i class="bi bi-search-heart"></i></span>
+                        <div>
+                            <strong>Need-Based Projects</strong>
+                            <p>We start from community reality, not from templates.</p>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-primary-custom"></i><span class="fw-600 small">Transparent Reporting</span></div>
+                    <div class="csr-why-item">
+                        <span class="csr-why-icon"><i class="bi bi-bar-chart-fill"></i></span>
+                        <div>
+                            <strong>Measurable Outcomes</strong>
+                            <p>Milestones, beneficiary data, and outcome reports for every project.</p>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-primary-custom"></i><span class="fw-600 small">Measurable Outcomes</span></div>
+                    <div class="csr-why-item">
+                        <span class="csr-why-icon"><i class="bi bi-file-earmark-text-fill"></i></span>
+                        <div>
+                            <strong>Transparent Reporting</strong>
+                            <p>Progress reports, photos, and audit-ready financials.</p>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <div class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-primary-custom"></i><span class="fw-600 small">Responsible Use of Funds</span></div>
+                    <div class="csr-why-item">
+                        <span class="csr-why-icon"><i class="bi bi-award-fill"></i></span>
+                        <div>
+                            <strong>80G Tax Benefit</strong>
+                            <p>Eligible donations qualify for income tax deduction under 80G.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -53,36 +113,242 @@
     </div>
 </section>
 
-<!-- CSR Categories -->
-{% if csr_categories %}
-<section class="section section-gray">
+<!-- ===== CSR CATEGORIES ===== -->
+<section class="section section-gray" id="csr-categories">
     <div class="container">
         <div class="text-center" data-animate>
             <span class="section-label">CSR Projects</span>
             <h2 class="section-title">Project Categories For CSR Support</h2>
+            <p class="section-subtitle">Choose from a wide range of social impact project areas that align with your CSR mandate and ESG goals.</p>
         </div>
         <div class="row g-4">
-            {% for cat in csr_categories %}
-            <div class="col-md-4 col-lg-3" data-animate>
-                <div class="focus-card">
-                    <h5>{{ cat.name }}</h5>
-                    {% if cat.description %}<p>{{ cat.description|truncatewords:12 }}</p>{% endif %}
+            {% if csr_categories %}
+                {% for cat in csr_categories %}
+                <div class="col-md-4 col-lg-3" data-animate>
+                    <div class="csr-cat-card focus-card">
+                        <div class="focus-icon focus-blue"><i class="bi bi-stars"></i></div>
+                        <h5>{{ cat.name }}</h5>
+                        {% if cat.description %}<p>{{ cat.description|truncatewords:14 }}</p>{% endif %}
+                    </div>
                 </div>
-            </div>
-            {% endfor %}
+                {% endfor %}
+            {% else %}
+                <div class="col-md-6 col-lg-4" data-animate>
+                    <div class="focus-card">
+                        <div class="focus-icon focus-blue"><i class="bi bi-laptop"></i></div>
+                        <h5>Digital Classroom Project</h5>
+                        <p>Equip rural and semi-urban schools with digital tools, internet access, and trained teachers for better learning outcomes.</p>
+                        <span class="csr-cat-tag">Education · STEM</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-animate>
+                    <div class="focus-card">
+                        <div class="focus-icon focus-teal"><i class="bi bi-tools"></i></div>
+                        <h5>Skill Development Centre</h5>
+                        <p>Fund vocational training facilities for youth and women with job-ready IT, trade, and entrepreneurship skills.</p>
+                        <span class="csr-cat-tag">Livelihood · Women</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-animate>
+                    <div class="focus-card">
+                        <div class="focus-icon focus-rose"><i class="bi bi-hospital"></i></div>
+                        <h5>Mobile Medical Unit</h5>
+                        <p>Support a mobile health team serving remote communities with regular check-ups, essential medicines, and medical aid.</p>
+                        <span class="csr-cat-tag">Healthcare · Rural</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-animate>
+                    <div class="focus-card">
+                        <div class="focus-icon focus-purple"><i class="bi bi-lightbulb-fill"></i></div>
+                        <h5>STEM & Robotics Lab</h5>
+                        <p>Create hands-on science and innovation labs in government schools to inspire future-ready learners and creative thinkers.</p>
+                        <span class="csr-cat-tag">Innovation · Schools</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-animate>
+                    <div class="focus-card">
+                        <div class="focus-icon focus-green"><i class="bi bi-tree-fill"></i></div>
+                        <h5>Tree Plantation & Water Conservation</h5>
+                        <p>Drive community plantation drives, rainwater harvesting, and sustainability awareness campaigns for climate resilience.</p>
+                        <span class="csr-cat-tag">Environment · Climate</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-animate>
+                    <div class="focus-card">
+                        <div class="focus-icon focus-orange"><i class="bi bi-people-fill"></i></div>
+                        <h5>Women Entrepreneurship Program</h5>
+                        <p>Support women-led self-help groups and micro-enterprises with skills, mentorship, market linkage, and seed capital.</p>
+                        <span class="csr-cat-tag">Women · Livelihood</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-animate>
+                    <div class="focus-card">
+                        <div class="focus-icon focus-rose"><i class="bi bi-activity"></i></div>
+                        <h5>Health Camp Series</h5>
+                        <p>Organize regular free health screening camps, eye check-ups, blood donation drives, and nutrition programs in underserved areas.</p>
+                        <span class="csr-cat-tag">Healthcare · Camps</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-animate>
+                    <div class="focus-card">
+                        <div class="focus-icon focus-amber"><i class="bi bi-shield-fill-check"></i></div>
+                        <h5>Disaster Relief Support</h5>
+                        <p>Be ready to support emergency food, shelter, medical relief, and rehabilitation for communities facing natural disasters or crises.</p>
+                        <span class="csr-cat-tag">Disaster · Emergency</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-animate>
+                    <div class="focus-card">
+                        <div class="focus-icon focus-pink"><i class="bi bi-emoji-smile-fill"></i></div>
+                        <h5>Elderly Care & Rehabilitation</h5>
+                        <p>Support dignity, healthcare access, and livelihood assistance for senior citizens who lack family or institutional support.</p>
+                        <span class="csr-cat-tag">Elderly · Welfare</span>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 </section>
-{% endif %}
 
-<!-- Inquiry Form -->
+<!-- ===== IMPLEMENTATION APPROACH ===== -->
+<section class="section section-warm">
+    <div class="container">
+        <div class="text-center" data-animate>
+            <span class="section-label">Our Approach</span>
+            <h2 class="section-title">How We Work Together</h2>
+            <p class="section-subtitle">Every CSR partnership follows a structured, auditable process built on need assessment, responsible delivery, and transparent reporting.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3" data-animate>
+                <div class="approach-step">
+                    <div class="approach-num">01</div>
+                    <div class="approach-icon"><i class="bi bi-search-heart"></i></div>
+                    <h5>Need Assessment</h5>
+                    <p>We identify real beneficiary needs, map the target geography, and align project goals with your CSR mandate and ESG priorities — before committing a single rupee.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-animate>
+                <div class="approach-step">
+                    <div class="approach-num">02</div>
+                    <div class="approach-icon"><i class="bi bi-kanban-fill"></i></div>
+                    <h5>Project Planning</h5>
+                    <p>We create a detailed project plan with clear milestones, timelines, budget breakdown, expected outcomes, and KPIs for your team's review and approval.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-animate>
+                <div class="approach-step">
+                    <div class="approach-num">03</div>
+                    <div class="approach-icon"><i class="bi bi-people-fill"></i></div>
+                    <h5>Responsible Delivery</h5>
+                    <p>Our field team implements each activity with active community participation, qualified staff, and documented beneficiary engagement at every step.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-animate>
+                <div class="approach-step">
+                    <div class="approach-num">04</div>
+                    <div class="approach-icon"><i class="bi bi-file-earmark-bar-graph-fill"></i></div>
+                    <h5>Reporting & Impact</h5>
+                    <p>We provide regular progress reports, photo documentation, beneficiary data, and final impact assessment for your compliance and CSR reporting records.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PARTNERSHIP TYPES ===== -->
 <section class="section">
     <div class="container">
-        <div class="row g-5">
+        <div class="text-center mb-5" data-animate>
+            <span class="section-label">What We Offer</span>
+            <h2 class="section-title">Partnership Models</h2>
+            <p class="section-subtitle">We work flexibly with different types of partners, adapting to your goals, budget, and CSR policy requirements.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4" data-animate>
+                <div class="partner-model-card">
+                    <div class="pmk-icon pmk-blue"><i class="bi bi-building"></i></div>
+                    <h5>Corporate CSR Projects</h5>
+                    <p>Full project implementation under your CSR mandate — from design to delivery to impact reporting. Compliant with Section 135 of the Companies Act.</p>
+                    <ul class="pmk-list">
+                        <li>Dedicated project manager</li>
+                        <li>Quarterly progress reports</li>
+                        <li>CSR Schedule VII aligned</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4" data-animate>
+                <div class="partner-model-card">
+                    <div class="pmk-icon pmk-teal"><i class="bi bi-mortarboard-fill"></i></div>
+                    <h5>School & Education Partnership</h5>
+                    <p>Collaborate to improve learning outcomes — digital classrooms, STEM labs, scholarship support, teacher training, and school infrastructure.</p>
+                    <ul class="pmk-list">
+                        <li>Curriculum-aligned programs</li>
+                        <li>School adoption model</li>
+                        <li>Student outcome tracking</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4" data-animate>
+                <div class="partner-model-card">
+                    <div class="pmk-icon pmk-rose"><i class="bi bi-hospital"></i></div>
+                    <h5>Healthcare Partnership</h5>
+                    <p>Support mobile medical units, health camps, maternal care, nutrition programs, and mental health awareness in underserved communities.</p>
+                    <ul class="pmk-list">
+                        <li>Camp organization support</li>
+                        <li>Medicine &amp; equipment provision</li>
+                        <li>Health outcome reports</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4" data-animate>
+                <div class="partner-model-card">
+                    <div class="pmk-icon pmk-purple"><i class="bi bi-cpu-fill"></i></div>
+                    <h5>Technology Partnership</h5>
+                    <p>Donate software licenses, hardware, or digital infrastructure. Help bridge the digital divide in rural and semi-urban schools and communities.</p>
+                    <ul class="pmk-list">
+                        <li>Device donation programs</li>
+                        <li>Software &amp; connectivity</li>
+                        <li>Digital literacy camps</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4" data-animate>
+                <div class="partner-model-card">
+                    <div class="pmk-icon pmk-green"><i class="bi bi-tree-fill"></i></div>
+                    <h5>Environment & Sustainability</h5>
+                    <p>Tree plantation, water conservation, clean energy awareness, and waste management programs — aligned with UN SDG 13, 14, and 15.</p>
+                    <ul class="pmk-list">
+                        <li>Carbon offset programs</li>
+                        <li>School eco-clubs</li>
+                        <li>Community green drives</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4" data-animate>
+                <div class="partner-model-card">
+                    <div class="pmk-icon pmk-amber"><i class="bi bi-shield-fill-check"></i></div>
+                    <h5>Grants & Institutional Support</h5>
+                    <p>Government scheme linkage, grant applications, monitoring support, and third-party evaluation for institutional or foundation partners.</p>
+                    <ul class="pmk-list">
+                        <li>FCRA-compliant processing</li>
+                        <li>Donor-advised fund support</li>
+                        <li>Third-party impact audit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== INQUIRY FORM ===== -->
+<section class="section section-gray" id="csr-inquiry">
+    <div class="container">
+        <div class="row g-5 align-items-start">
             <div class="col-lg-7" data-animate>
-                <h3 class="mb-1">Partnership Inquiry</h3>
+                <span class="section-label">Get In Touch</span>
+                <h2 class="section-title mb-1">Send a Partnership Inquiry</h2>
                 <div class="section-divider mb-4"></div>
-                <p class="text-muted mb-4">Interested in partnering with us? Fill out the form below and our team will get back to you.</p>
+                <p class="text-muted mb-4">Interested in partnering with us? Share your requirements and our team will reach out within 2 working days.</p>
                 <form method="post" action="{% url 'partnerships:enquire' %}">
                     {% csrf_token %}
                     <div class="row g-3">
@@ -99,39 +365,67 @@
                     </button>
                 </form>
             </div>
+
             <div class="col-lg-5" data-animate>
-                <div class="p-4 rounded-custom" style="background:var(--primary-light);">
-                    <h5 class="fw-600 mb-3">Partnership Types</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> CSR Project Implementation</li>
-                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> School & Education Partnership</li>
-                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> Hospital & Healthcare Partnership</li>
-                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> Skill Training Partnership</li>
-                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> Technology Partnership</li>
-                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> Government Scheme Linkage</li>
-                        <li class="d-flex align-items-center gap-2 mb-3"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> Donation & Grant Support</li>
-                        <li class="d-flex align-items-center gap-2"><i class="bi bi-arrow-right-circle-fill text-primary-custom"></i> Monitoring & Reporting Support</li>
-                    </ul>
+                <div class="csr-sidebar">
+                    <h5 class="fw-700 mb-4">Why Companies Choose Us</h5>
+                    <div class="csr-sidebar-item">
+                        <span class="csr-sb-icon"><i class="bi bi-patch-check-fill"></i></span>
+                        <div>
+                            <strong>Registered & Credible</strong>
+                            <p>Formally registered trust with 12A and 80G eligibility for tax-deductible CSR contributions.</p>
+                        </div>
+                    </div>
+                    <div class="csr-sidebar-item">
+                        <span class="csr-sb-icon"><i class="bi bi-geo-alt-fill"></i></span>
+                        <div>
+                            <strong>Field Presence</strong>
+                            <p>On-ground implementation team with community access, local knowledge, and beneficiary relationships.</p>
+                        </div>
+                    </div>
+                    <div class="csr-sidebar-item">
+                        <span class="csr-sb-icon"><i class="bi bi-file-earmark-bar-graph-fill"></i></span>
+                        <div>
+                            <strong>Compliance-Ready Reports</strong>
+                            <p>Quarterly and annual reports designed for your CSR board and Schedule VII compliance submissions.</p>
+                        </div>
+                    </div>
+                    <div class="csr-sidebar-item">
+                        <span class="csr-sb-icon"><i class="bi bi-people-fill"></i></span>
+                        <div>
+                            <strong>Employee Engagement</strong>
+                            <p>Opportunities for your employees to volunteer, mentor, and participate in field programs directly.</p>
+                        </div>
+                    </div>
+
+                    <div class="csr-contact-note mt-4">
+                        <i class="bi bi-envelope-fill"></i>
+                        {% if site_config.contact_email %}
+                        <span>Or email us at <a href="mailto:{{ site_config.contact_email }}">{{ site_config.contact_email }}</a></span>
+                        {% else %}
+                        <span>Or reach us via the <a href="{% url 'core:contact' %}">contact page</a></span>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Partners -->
+<!-- ===== PARTNERS ===== -->
 {% if partners %}
-<section class="section-sm section-gray">
+<section class="section-sm">
     <div class="container">
-        <div class="text-center" data-animate>
-            <h4>Our Current Partners</h4>
+        <div class="text-center mb-4" data-animate>
+            <h5 class="fw-700">Our Partners &amp; Collaborators</h5>
         </div>
-        <div class="row align-items-center justify-content-center g-4 mt-2">
+        <div class="row align-items-center justify-content-center g-4">
             {% for partner in partners %}
-            <div class="col-4 col-md-3 col-lg-2 text-center p-3">
+            <div class="col-4 col-md-3 col-lg-2 text-center" data-animate>
                 {% if partner.logo %}
-                <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" class="img-fluid" style="max-height:50px;">
+                <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" class="img-fluid partner-logo-img">
                 {% else %}
-                <span class="fw-600 text-muted">{{ partner.name }}</span>
+                <div class="partner-name-badge">{{ partner.name }}</div>
                 {% endif %}
             </div>
             {% endfor %}
@@ -139,4 +433,5 @@
     </div>
 </section>
 {% endif %}
+
 {% endblock %}

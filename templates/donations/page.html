@@ -120,46 +120,69 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 {% endif %}
 <script>
-let selectedAmount = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    var selectedAmount = 0;
+    var amountBtns = document.querySelectorAll('.amount-btn');
+    var customAmountEl = document.getElementById('custom-amount');
+    var donorNameEl = document.getElementById('donor-name');
+    var donorEmailEl = document.getElementById('donor-email');
+    var donorPhoneEl = document.getElementById('donor-phone');
+    var donorPanEl = document.getElementById('donor-pan');
+    var donorAddressEl = document.getElementById('donor-address');
+    var donateBtnEl = document.getElementById('donate-btn');
 
-$('.amount-btn').on('click', function() {
-    selectedAmount = parseInt($(this).data('amount'));
-    $('#custom-amount').val(selectedAmount);
-    $('.amount-btn').removeClass('active');
-    $(this).addClass('active');
-    checkReady();
-});
+    function checkReady() {
+        var ready = selectedAmount > 0 &&
+            donorNameEl.value.trim() &&
+            donorEmailEl.value.trim() &&
+            donorPhoneEl.value.trim();
+        donateBtnEl.disabled = !ready;
+    }
 
-$('#custom-amount').on('input', function() {
-    selectedAmount = parseInt($(this).val()) || 0;
-    $('.amount-btn').removeClass('active');
-    checkReady();
-});
+    amountBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            selectedAmount = parseInt(btn.dataset.amount);
+            customAmountEl.value = selectedAmount;
+            amountBtns.forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            checkReady();
+        });
+    });
 
-function checkReady() {
-    var ready = selectedAmount > 0 && $('#donor-name').val() && $('#donor-email').val() && $('#donor-phone').val();
-    $('#donate-btn').prop('disabled', !ready);
-}
-$('#donor-name, #donor-email, #donor-phone').on('input', checkReady);
+    customAmountEl.addEventListener('input', function() {
+        selectedAmount = parseInt(customAmountEl.value) || 0;
+        amountBtns.forEach(function(b) { b.classList.remove('active'); });
+        checkReady();
+    });
 
-$('#donate-btn').on('click', function() {
-    var data = {
-        amount: selectedAmount,
-        name: $('#donor-name').val(),
-        email: $('#donor-email').val(),
-        phone: $('#donor-phone').val(),
-        pan: $('#donor-pan').val(),
-        address: $('#donor-address').val(),
-    };
+    [donorNameEl, donorEmailEl, donorPhoneEl].forEach(function(el) {
+        el.addEventListener('input', checkReady);
+    });
 
-    {% if razorpay_key_id %}
-    $.ajax({
-        url: "{% url 'donations:create-order' %}",
-        method: 'POST',
-        data: JSON.stringify(data),
-        contentType: 'application/json',
-        headers: {'X-CSRFToken': '{{ csrf_token }}'},
-        success: function(resp) {
+    donateBtnEl.addEventListener('click', function() {
+        var data = {
+            amount: selectedAmount,
+            name: donorNameEl.value,
+            email: donorEmailEl.value,
+            phone: donorPhoneEl.value,
+            pan: donorPanEl ? donorPanEl.value : '',
+            address: donorAddressEl ? donorAddressEl.value : ''
+        };
+
+        {% if razorpay_key_id %}
+        fetch("{% url 'donations:create-order' %}", {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        })
+        .then(function(resp) {
+            if (!resp.ok) return resp.json().then(function(e) { throw e; });
+            return resp.json();
+        })
+        .then(function(resp) {
             var options = {
                 key: "{{ razorpay_key_id }}",
                 amount: resp.amount,
@@ -167,24 +190,29 @@ $('#donate-btn').on('click', function() {
                 name: "{{ site_config.name }}",
                 order_id: resp.order_id,
                 handler: function(response) {
-                    $.ajax({
-                        url: "{% url 'donations:verify' %}",
+                    fetch("{% url 'donations:verify' %}", {
                         method: 'POST',
-                        data: JSON.stringify(response),
-                        contentType: 'application/json',
-                        headers: {'X-CSRFToken': '{{ csrf_token }}'},
-                        success: function() { window.location.href = "{% url 'donations:success' %}"; }
+                        body: JSON.stringify(response),
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': '{{ csrf_token }}'
+                        }
+                    })
+                    .then(function() {
+                        window.location.href = "{% url 'donations:success' %}";
                     });
                 },
-                prefill: {name: data.name, email: data.email, contact: data.phone}
+                prefill: { name: data.name, email: data.email, contact: data.phone }
             };
             new Razorpay(options).open();
-        },
-        error: function(xhr) { alert(xhr.responseJSON?.error || 'Something went wrong.'); }
+        })
+        .catch(function(err) {
+            alert((err && err.error) ? err.error : 'Something went wrong. Please try again.');
+        });
+        {% else %}
+        alert('Payment gateway is being configured. Please try again later or contact us directly.');
+        {% endif %}
     });
-    {% else %}
-    alert('Payment gateway is being configured. Please try again later.');
-    {% endif %}
 });
 </script>
 {% endblock %}
